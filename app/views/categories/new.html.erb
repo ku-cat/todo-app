@@ -1,0 +1,7 @@
+<h1>新規カテゴリー</h1>
+<%= form_for(@category) do |f| %>
+  <div><%= f.label :title %></div>
+  <div><%= f.text_field :title %></div>
+  <div><%= f.submit %></div>
+<% end %>
+<%= link_to '戻る', categories_path %>
