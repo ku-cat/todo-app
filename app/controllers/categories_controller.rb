@@ -13,6 +13,10 @@ class CategoriesController < ApplicationController
         redirect_to categories_path
     end
     
+    def show
+        @category = Category.find_by(id: params[:id])
+    end
+    
     def edit
         @category = Category.find_by(id: params[:id])
     end

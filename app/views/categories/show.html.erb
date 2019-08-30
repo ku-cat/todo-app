@@ -1,0 +1,21 @@
+<h1><%= @category.title %></h1>
+
+<ul>
+    <!-- projectに紐付くtaskがあるだけループする -->
+    <% @category.todos.each do |todo| %>
+    <li>
+        <!-- taskのtitleを表示 -->
+        <%= todo.content %>
+        <%= link_to "[Delete]", category_todo_path(todo.category_id, todo.id), method: :delete, data: {confirm: "are you sure?"} %>
+    </li>
+    <% end %>
+
+    <!-- 新規タスク登録フォーム -->
+    <li>
+        <%= form_for [@category, @category.todos.build] do |f| %>
+        <%= f.text_field :content %>
+        <%= f.submit %>
+        <% end %>
+    </li>
+</ul>
+<%= link_to '戻る', categories_path %>
